@@ -14,8 +14,7 @@ public class Hamburger {
         this.name = name;
         this.price = price;
     }
-
-
+    
     public String getBreadRoll() {
         return breadRoll;
     }
@@ -32,20 +31,27 @@ public class Hamburger {
         return price;
     }
 
-    /*private void hamburgerPrice(Addition addition1){
-        totalPrice = this.price + addition1.getPrice();
+    public void setPrice(double price) {
+        this.price = price;
     }
 
-    private void hamburgerPrice(Addition addition1, Addition addition2){
-        totalPrice =  this.price + addition1.getPrice() + addition2.getPrice();
+    public double hamburgerPrice(Addition addition1){
+       return this.price + addition1.getPrice();
+
     }
 
-    private void hamburgerPrice(Addition addition1 , Addition addition2, Addition addition3){
-        totalPrice =  this.price + addition1.getPrice() + addition2.getPrice() + addition3.getPrice();
+    public double hamburgerPrice(Addition addition1, Addition addition2){
+        return this.price + addition1.getPrice() + addition2.getPrice();
+
     }
 
-    private void hamburgerPrice(Addition addition1, Addition addition2, Addition addition3, Addition addition4){
-        totalPrice =  this.price + addition1.getPrice() + addition2.getPrice() + addition3.getPrice() + addition4.getPrice();
-    }*/
+    public double hamburgerPrice(Addition addition1 , Addition addition2, Addition addition3){
+        return this.price + addition1.getPrice() + addition2.getPrice() + addition3.getPrice();
+
+    }
+
+    public double hamburgerPrice(Addition addition1, Addition addition2, Addition addition3, Addition addition4){
+        return this.price + addition1.getPrice() + addition2.getPrice() + addition3.getPrice() + addition4.getPrice();
+    }
 
 }
