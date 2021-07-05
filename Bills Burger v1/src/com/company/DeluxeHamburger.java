@@ -4,13 +4,17 @@ public class DeluxeHamburger extends Hamburger{
 
     private Addition chips;
     private Addition drink;
+    private double additionTotal;
 
 
-    public DeluxeHamburger(String breadRoll, String meat, String name, double price) {
-        super(breadRoll, meat, name, price);
-        chips = new Addition("chips",0.1);
+    public DeluxeHamburger(String meat) {
+        super("Brown Rye", meat, "Deluxe", 3.0);
+        chips = new Addition("chips",0.3);
         drink = new Addition("cola",0.2);
-        this.setPrice(chips.getPrice() + drink.getPrice() + this.getPrice());
+        additionStack.push(drink);
+        additionStack.push(chips);
+        this.setPrice(this.getPrice() + chips.getPrice() + drink.getPrice());
+        this.setAdditionTotal(chips.getPrice() + drink.getPrice());
     }
 
     public Addition getChips() {
@@ -21,4 +25,15 @@ public class DeluxeHamburger extends Hamburger{
         return drink;
     }
 
+    public double getAdditionTotal() {
+        return additionTotal;
+    }
+
+    public void setAdditionTotal(double additionTotal) {
+        this.additionTotal = additionTotal;
+    }
+
+    public double getTotalPrice() {
+        return additionTotal + this.getPrice();
+    }
 }

@@ -1,12 +1,18 @@
 package com.company;
 
 
+import java.util.ArrayList;
+import java.util.Queue;
+import java.util.Stack;
+
 public class Hamburger {
 
     private String breadRoll;
     private String meat;
     private String name;
     private double price;
+    private double additionTotal = 0;
+    Stack<Addition> additionStack = new Stack<>();
 
     public Hamburger(String breadRoll, String meat, String name, double price) {
         this.breadRoll = breadRoll;
@@ -14,7 +20,11 @@ public class Hamburger {
         this.name = name;
         this.price = price;
     }
-    
+
+    public Stack<Addition> getAdditionStack() {
+        return additionStack;
+    }
+
     public String getBreadRoll() {
         return breadRoll;
     }
@@ -35,23 +45,19 @@ public class Hamburger {
         this.price = price;
     }
 
-    public double hamburgerPrice(Addition addition1){
-       return this.price + addition1.getPrice();
-
+    public void addAddition(Addition addition){
+        setAdditionTotal(addition.getPrice());
     }
 
-    public double hamburgerPrice(Addition addition1, Addition addition2){
-        return this.price + addition1.getPrice() + addition2.getPrice();
-
+    public double getAdditionTotal() {
+        return additionTotal;
     }
 
-    public double hamburgerPrice(Addition addition1 , Addition addition2, Addition addition3){
-        return this.price + addition1.getPrice() + addition2.getPrice() + addition3.getPrice();
-
+    public void setAdditionTotal(double additionTotal) {
+        this.additionTotal += additionTotal;
     }
 
-    public double hamburgerPrice(Addition addition1, Addition addition2, Addition addition3, Addition addition4){
-        return this.price + addition1.getPrice() + addition2.getPrice() + addition3.getPrice() + addition4.getPrice();
+    public void saveAddition(Addition addition) {
+        additionStack.add(addition);
     }
-
 }
